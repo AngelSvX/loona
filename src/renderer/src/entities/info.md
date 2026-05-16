@@ -1,0 +1,1 @@
+# Son los modelos del dominio, por ejemplo "Musica", "Album", "Artista", etc. Cada entity tiene su tipo, su slice de estado básico, y sus componentes UI más primitivos (Una tarjeta de canción por ejemplo) Esto último se estará cambiando por su creación en features

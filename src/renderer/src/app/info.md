@@ -1,0 +1,1 @@
+# Aquí van los providers globales, es decir, el montaje global de todo lo que usaremos (redux, router, estilos globales, etc.)

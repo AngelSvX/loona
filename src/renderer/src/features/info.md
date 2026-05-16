@@ -1,0 +1,3 @@
+# Acciones que el usuario podría hacer, como buscar música, pausar, reanudar, añadir a la playlist...
+
+# Cada feature tiene su UI, su lógica y su estado propio. Esta es la capa donde más tiempo pasas.

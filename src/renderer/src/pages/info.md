@@ -1,0 +1,1 @@
+# Estas son las rutas de la App, cada página es una composición de widgets y features, no tienen lógica propia.

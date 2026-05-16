@@ -1,0 +1,184 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "name": "Blinding Lights",
+      "author": "The Weeknd",
+      "image": "https://i.scdn.co/image/ab67616d0000b273e6c9c9f1b6c5c5e4b0b2d1a4",
+      "duration": "3:20",
+      "color": "#ff2e63",
+      "genre": "synthwave"
+    },
+    {
+      "id": 2,
+      "name": "After Dark",
+      "author": "Mr.Kitty",
+      "image": "https://i.scdn.co/image/ab67616d0000b273fdf2c0c4c0e4c56f8d9b3c22",
+      "duration": "4:17",
+      "color": "#1a1a2e",
+      "genre": "darkwave"
+    },
+    {
+      "id": 3,
+      "name": "Nightcall",
+      "author": "Kavinsky",
+      "image": "https://i.scdn.co/image/ab67616d0000b2736e3d3a9b4e4e6c9e5b5d1a8e",
+      "duration": "4:21",
+      "color": "#0f3460",
+      "genre": "synthwave"
+    },
+    {
+      "id": 4,
+      "name": "Genesis",
+      "author": "Grimes",
+      "image": "https://i.scdn.co/image/ab67616d0000b2730c0c0c0c0c0c0c0c0c0c0c0c",
+      "duration": "4:15",
+      "color": "#ffb3c1",
+      "genre": "electronic"
+    },
+    {
+      "id": 5,
+      "name": "Oblivion",
+      "author": "Grimes",
+      "image": "https://i.scdn.co/image/ab67616d0000b273d3c4c5e6f7a8b9c0d1e2f3a4",
+      "duration": "4:11",
+      "color": "#ffc300",
+      "genre": "electronic"
+    },
+    {
+      "id": 6,
+      "name": "Midnight City",
+      "author": "M83",
+      "image": "https://i.scdn.co/image/ab67616d0000b273a1b2c3d4e5f6789012345678",
+      "duration": "4:03",
+      "color": "#ff6f61",
+      "genre": "synthpop"
+    },
+    {
+      "id": 7,
+      "name": "Pursuit",
+      "author": "Gesaffelstein",
+      "image": "https://i.scdn.co/image/ab67616d0000b273b2c3d4e5f678901234567890",
+      "duration": "4:24",
+      "color": "#000000",
+      "genre": "electronic"
+    },
+    {
+      "id": 8,
+      "name": "Sacrifice",
+      "author": "The Weeknd",
+      "image": "https://i.scdn.co/image/ab67616d0000b273c3d4e5f67890123456789012",
+      "duration": "3:08",
+      "color": "#ff003c",
+      "genre": "synthpop"
+    },
+    {
+      "id": 9,
+      "name": "A Real Hero",
+      "author": "College & Electric Youth",
+      "image": "https://i.scdn.co/image/ab67616d0000b273d4e5f6789012345678901234",
+      "duration": "4:27",
+      "color": "#00f5d4",
+      "genre": "synthwave"
+    },
+    {
+      "id": 10,
+      "name": "Tech Noir",
+      "author": "Gunship",
+      "image": "https://i.scdn.co/image/ab67616d0000b273e5f678901234567890123456",
+      "duration": "4:46",
+      "color": "#ff00ff",
+      "genre": "synthwave"
+    },
+    {
+      "id": 11,
+      "name": "Gooey",
+      "author": "Glass Animals",
+      "image": "https://i.scdn.co/image/ab67616d0000b273f67890123456789012345678",
+      "duration": "4:49",
+      "color": "#6a0572",
+      "genre": "indie electronic"
+    },
+    {
+      "id": 12,
+      "name": "Kill V. Maim",
+      "author": "Grimes",
+      "image": "https://i.scdn.co/image/ab67616d0000b273012345678901234567890123",
+      "duration": "4:06",
+      "color": "#ff477e",
+      "genre": "electronic"
+    },
+    {
+      "id": 13,
+      "name": "Blue Monday",
+      "author": "New Order",
+      "image": "https://i.scdn.co/image/ab67616d0000b273123456789012345678901234",
+      "duration": "7:29",
+      "color": "#1d3557",
+      "genre": "synthpop"
+    },
+    {
+      "id": 14,
+      "name": "Enjoy the Silence",
+      "author": "Depeche Mode",
+      "image": "https://i.scdn.co/image/ab67616d0000b273234567890123456789012345",
+      "duration": "4:15",
+      "color": "#22223b",
+      "genre": "darkwave"
+    },
+    {
+      "id": 15,
+      "name": "Crystal Castles",
+      "author": "Crimewave",
+      "image": "https://i.scdn.co/image/ab67616d0000b273345678901234567890123456",
+      "duration": "4:18",
+      "color": "#0b132b",
+      "genre": "witch house"
+    },
+    {
+      "id": 16,
+      "name": "Not In Love",
+      "author": "Crystal Castles ft. Robert Smith",
+      "image": "https://i.scdn.co/image/ab67616d0000b273456789012345678901234567",
+      "duration": "4:02",
+      "color": "#3a0ca3",
+      "genre": "darkpop"
+    },
+    {
+      "id": 17,
+      "name": "Space Song",
+      "author": "Beach House",
+      "image": "https://i.scdn.co/image/ab67616d0000b273567890123456789012345678",
+      "duration": "5:20",
+      "color": "#4361ee",
+      "genre": "dream pop"
+    },
+    {
+      "id": 18,
+      "name": "Running Up That Hill",
+      "author": "Kate Bush",
+      "image": "https://i.scdn.co/image/ab67616d0000b273678901234567890123456789",
+      "duration": "4:58",
+      "color": "#9a031e",
+      "genre": "synthpop"
+    },
+    {
+      "id": 19,
+      "name": "Resonance",
+      "author": "HOME",
+      "image": "https://i.scdn.co/image/ab67616d0000b273789012345678901234567890",
+      "duration": "3:32",
+      "color": "#00bbf9",
+      "genre": "synthwave"
+    },
+    {
+      "id": 20,
+      "name": "Turbo Killer",
+      "author": "Carpenter Brut",
+      "image": "https://i.scdn.co/image/ab67616d0000b273890123456789012345678901",
+      "duration": "3:49",
+      "color": "#ff006e",
+      "genre": "synthwave"
+    }
+  ]
+}
