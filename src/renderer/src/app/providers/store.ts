@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-export const store = configureStore({
-    // Aquí se agrega cada reducer creado en nuestro slice
-    reducer: {
+import songsSlice from '../../features/loona/songs/model/slice'
 
+export const store = configureStore({
+    reducer: {
+        song: songsSlice
     }
 })
 

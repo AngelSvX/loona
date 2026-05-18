@@ -9,6 +9,8 @@ body {
   background-image: url('./wavy-lines.svg');
   background-size: cover;
   user-select: none;
+  height: 100%;
+  margin: 0;
 }
 
 code {
@@ -33,6 +35,8 @@ code {
   justify-content: center;
   flex-direction: column;
   margin-bottom: 80px;
+  height: 100%;
+  margin: 0;
 }
 
 .logo {
@@ -169,4 +173,21 @@ code {
   .actions {
     display: none;
   }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a580f090;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a580f0;
 }

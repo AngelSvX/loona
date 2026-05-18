@@ -1,7 +1,8 @@
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
-import { app, BrowserWindow, ipcMain, shell } from 'electron'
-import { join } from 'path'
+import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
+import path, { join } from 'path'
 import icon from '../../resources/icon.png?asset'
+import fs from 'fs'
 
 function createWindow(): void {
   // Create the browser window.
@@ -10,6 +11,7 @@ function createWindow(): void {
     height: 650,
     show: false,
     autoHideMenuBar: true,
+    resizable: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -72,3 +74,44 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+export function saveSong(filePath: string) {
+  const songDir = path.join(app.getPath('userData'), 'songs')
+
+  if (!fs.existsSync(songDir)) {
+    fs.mkdirSync(songDir, { recursive: true })
+  }
+
+  const fileName = path.basename(filePath);
+
+  const destination = path.join(songDir, fileName)
+
+  fs.copyFileSync(filePath, destination)
+
+  return {
+    fileName,
+    path: destination
+  }
+
+}
+
+// Abrir selector de archivo
+ipcMain.handle('select-song', async () => {
+  const result = await dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      { name: 'Music', extensions: ['mp3', 'wav', 'mp4'] }
+    ]
+  });
+
+  if (result.canceled) return null;
+
+  return result.filePaths[0];
+});
+
+// Guardar canción
+ipcMain.handle('save-song', async (_, filePath: string) => {
+  const result = saveSong(filePath)
+  console.log(result)
+  return result
+});
