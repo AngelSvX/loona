@@ -1,4 +1,5 @@
 import LibraryPage from "@renderer/pages/Library/ui/LibraryPage"
+import UploadPage from "@renderer/pages/Upload/ui/UploadPage"
 import WelcomePage from "@renderer/pages/Welcome/ui/WelcomePage"
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
 
@@ -19,6 +20,10 @@ function App() {
         {
             path: '/biblioteca',
             element: <LibraryPage/>
+        },
+        {
+            path: '/cargar',
+            element: <UploadPage/>
         },
         {
             path: '/play/:id',

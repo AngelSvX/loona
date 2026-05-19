@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { SongState } from "./types";
 import { Song } from "@renderer/entities/song/model/types";
-import { uploadSongToLibrary } from "./thunks";
+import { getSongsToLibrary, uploadSongToLibrary } from "./thunks";
 
 export const initialState: SongState = {
     songs: [],
@@ -17,7 +17,7 @@ export const songsSlice = createSlice({
 
         },
         deleteMusic: () => {
-            // Eliminar música
+
         }
     },
     extraReducers: (builder) => {
@@ -30,6 +30,16 @@ export const songsSlice = createSlice({
             })
             .addCase(uploadSongToLibrary.rejected, (state) => {
                 (state.songLoading = false), (state.songError = "Error al subir la música")
+            })
+        builder
+            .addCase(getSongsToLibrary.pending, (state) => {
+                (state.songLoading = true), (state.songError = null)
+            })
+            .addCase(getSongsToLibrary.fulfilled, (state, action: PayloadAction<Song[]>) => {
+                (state.songs = action.payload), (state.songLoading = false)
+            })
+            .addCase(getSongsToLibrary.rejected, (state) => {
+                (state.songLoading = false), (state.songError = "Un error ocurrió al traer las músicas D:")
             })
     }
 })

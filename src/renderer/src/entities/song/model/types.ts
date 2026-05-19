@@ -7,3 +7,8 @@ export interface Song {
     color: string,
     genre: string
 }
+
+export interface TemporalSong {
+    fileName: string,
+    path: string,
+}

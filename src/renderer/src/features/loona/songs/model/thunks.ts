@@ -1,5 +1,3 @@
-// De momento no se llama a ninguna API
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const uploadSongToLibrary = createAsyncThunk(
@@ -9,5 +7,14 @@ export const uploadSongToLibrary = createAsyncThunk(
         if (!filePath) return;
         const result = await window.api.saveSong(filePath);
         return result
+    }
+)
+
+export const getSongsToLibrary = createAsyncThunk(
+    'song/getSongs',
+    async () => {
+        const data = await window.api.getSongs();
+        if (!data) return [];
+        return data;
     }
 )

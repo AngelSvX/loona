@@ -3,6 +3,7 @@ import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
 import path, { join } from 'path'
 import icon from '../../resources/icon.png?asset'
 import fs from 'fs'
+import * as mm from 'music-metadata'
 
 function createWindow(): void {
   // Create the browser window.
@@ -95,6 +96,41 @@ export function saveSong(filePath: string) {
 
 }
 
+export async function getSongs() {
+  const songDir = path.join(app.getPath('userData'), 'songs')
+  if (!fs.existsSync(songDir)) return []
+
+  const files = fs.readdirSync(songDir)
+    .filter(file => ['.mp3', '.wav', '.mp4'].includes(path.extname(file).toLowerCase()))
+
+  const songs = await Promise.all(files.map(async (fileName, index) => {
+    const filePath = path.join(songDir, fileName)
+    const metadata = await mm.parseFile(filePath)
+
+    // La imagen viene como buffer, la convertimos a base64
+    const picture = metadata.common.picture?.[0]
+    const image = picture
+      ? `data:${picture.format};base64,${picture.data.toString()}`
+      : null
+      
+    const seconds = Math.floor(metadata.format.duration ?? 0)
+    const duration = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
+
+    return {
+      id: index,
+      fileName,
+      path: filePath,
+      name: metadata.common.title ?? fileName,
+      author: metadata.common.artist ?? 'Desconocido',
+      image,
+      duration,
+      genre: metadata.common.genre?.[0] ?? 'Sin género',
+    }
+  }))
+
+  return songs
+}
+
 // Abrir selector de archivo
 ipcMain.handle('select-song', async () => {
   const result = await dialog.showOpenDialog({
@@ -115,3 +151,8 @@ ipcMain.handle('save-song', async (_, filePath: string) => {
   console.log(result)
   return result
 });
+
+// Obtener músicas de la carpeta
+ipcMain.handle('get-songs', async () => {
+  return await getSongs()
+})

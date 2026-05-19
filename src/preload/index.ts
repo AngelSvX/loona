@@ -7,7 +7,8 @@ if (process.contextIsolated) {
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', {
       selectSong: () => ipcRenderer.invoke('select-song'),
-      saveSong: (filePath: string) => ipcRenderer.invoke('save-song', filePath)
+      saveSong: (filePath: string) => ipcRenderer.invoke('save-song', filePath),
+      getSongs: () => ipcRenderer.invoke('get-songs')
     })
   } catch (error) {
     console.error(error)
@@ -18,6 +19,7 @@ if (process.contextIsolated) {
   // @ts-ignore (define in dts)
   window.api = {
     selectSong: () => ipcRenderer.invoke('select-song'),
-    saveSong: (filePath: string) => ipcRenderer.invoke('save-song', filePath)
+    saveSong: (filePath: string) => ipcRenderer.invoke('save-song', filePath),
+    getSongs: () => ipcRenderer.invoke('get-songs')
   }
 }

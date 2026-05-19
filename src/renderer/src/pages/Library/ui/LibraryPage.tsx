@@ -11,7 +11,9 @@ function LibraryPage() {
           <button onClick={() => navigate(-1)}>
               Regresar
           </button>
-          <p className="">Aquí tus canciones</p>
+          <button onClick={() => navigate('/cargar')}>
+            Importar canción
+          </button>
         </div>
         <SongList/>
     </div>
