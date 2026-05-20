@@ -36,7 +36,26 @@ export const songsSlice = createSlice({
                 (state.songLoading = true), (state.songError = null)
             })
             .addCase(getSongsToLibrary.fulfilled, (state, action: PayloadAction<Song[]>) => {
-                (state.songs = action.payload), (state.songLoading = false)
+
+                const imageModules = import.meta.glob<string>(
+                '../../../../shared/images/*.{jpg,jpeg,png}',
+                {
+                    eager: true,
+                    import: 'default'
+                }
+                );
+
+                const images = Object.values(imageModules);
+
+                state.songs = action.payload.map(song => ({
+                ...song,
+                image:
+                    images[
+                    Math.floor(Math.random() * images.length)
+                    ]
+                }));
+
+                (state.songLoading = false)
             })
             .addCase(getSongsToLibrary.rejected, (state) => {
                 (state.songLoading = false), (state.songError = "Un error ocurrió al traer las músicas D:")

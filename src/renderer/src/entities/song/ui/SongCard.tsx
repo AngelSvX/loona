@@ -1,6 +1,9 @@
 import { Song } from "../model/types"
 
 function SongCard({ song }: { song: Song }) {
+
+  console.log(song.image)
+
   return (
     <div className="px-4 md:px-8 lg:px-16">
       <div
@@ -11,13 +14,11 @@ function SongCard({ song }: { song: Song }) {
       >
         <div className="relative flex items-center gap-4 bg-[#09091a] rounded-2xl p-3 overflow-hidden">
 
-          {/* Glow */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500"
             style={{ background: song.color }}
           />
 
-          {/* Imagen */}
           <div className="relative w-28 h-28 shrink-0">
             <img
               src={song.image}
@@ -30,7 +31,6 @@ function SongCard({ song }: { song: Song }) {
             </span>
           </div>
 
-          {/* Info */}
           <div className="flex flex-col justify-center flex-1 min-w-0 z-10">
 
             <h3 className="text-base font-semibold text-[#e0ddff] truncate">

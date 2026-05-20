@@ -107,12 +107,6 @@ export async function getSongs() {
     const filePath = path.join(songDir, fileName)
     const metadata = await mm.parseFile(filePath)
 
-    // La imagen viene como buffer, la convertimos a base64
-    const picture = metadata.common.picture?.[0]
-    const image = picture
-      ? `data:${picture.format};base64,${picture.data.toString()}`
-      : null
-      
     const seconds = Math.floor(metadata.format.duration ?? 0)
     const duration = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
 
@@ -122,7 +116,6 @@ export async function getSongs() {
       path: filePath,
       name: metadata.common.title ?? fileName,
       author: metadata.common.artist ?? 'Desconocido',
-      image,
       duration,
       genre: metadata.common.genre?.[0] ?? 'Sin género',
     }
