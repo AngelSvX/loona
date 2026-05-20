@@ -5,7 +5,7 @@ function LibraryPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-[450px] h-[650px] bg-[#09091a] flex flex-col overflow-hidden">
+    <div className="flex h-[650px] w-[450px] flex-col overflow-hidden bg-[#09091a]">
 
       <div className="border-b border-[#151627]">
 
@@ -14,28 +14,28 @@ function LibraryPage() {
           <button
             onClick={() => navigate(-1)}
             className="
-              w-9
-              h-9
-              rounded-full
               flex
+              h-9
+              w-9
               items-center
               justify-center
+              rounded-full
               text-[#a580f0]
-              hover:bg-[#482e9f]
               transition-all
               duration-300
+              hover:bg-[#482e9f]
             "
           >
             ◀
           </button>
 
           <div>
-            <h1 className="text-[#e0ddff] text-lg font-semibold">
+            <h1 className="text-lg font-semibold text-[#e0ddff]">
               Mi Biblioteca
             </h1>
 
-            <p className="text-[#707090] text-xs mt-1">
-              Estas son tus canciones disponibles
+            <p className="mt-1 text-xs text-[#707090]">
+              Estas son mis canciones disponibles
             </p>
           </div>
 
