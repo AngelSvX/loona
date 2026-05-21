@@ -40,6 +40,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({
                 cursor: "pointer",
                 transition: "background-color 0.2s ease, transform 0.1s ease",
                 boxShadow: "0 2px 8px rgba(99, 102, 241, 0.4)",
+                position: "fixed",
             }}
             onMouseEnter={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#4f46e5";

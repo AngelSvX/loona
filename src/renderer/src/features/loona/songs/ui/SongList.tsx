@@ -15,7 +15,7 @@ function SongList() {
   }, []);
 
   return (
-    <div className="flex h-[650px] w-[450px] flex-col bg-[#09091a]">
+    <div className="flex h-[650px] w-[450px] flex-col bg-[#09091a] ">
 
       <div
         className="
@@ -42,7 +42,7 @@ function SongList() {
 
       </div>
 
-      <div className="relative flex justify-end pt-30 pr-8">
+      <div className="absolute right-18 bottom-18 z-50">
         <CircularButton routeTo="cargar" />
       </div>
 
