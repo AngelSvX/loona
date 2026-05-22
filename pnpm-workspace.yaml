@@ -1,4 +1,7 @@
 allowBuilds:
+  '@tsparticles/engine': true
   electron: true
   electron-winstaller: true
   esbuild: true
+  react-tsparticles: true
+  tsparticles-engine: true
