@@ -1,8 +1,9 @@
+import { audioPlayer } from "@renderer/shared/services/audioPlayer"
 import { Song } from "../model/types"
 
 function SongCard({ song }: { song: Song }) {
 
-  console.log(song.image)
+  console.log(song.path)
 
   return (
     <div className="px-4 md:px-8 lg:px-16">
@@ -12,38 +13,38 @@ function SongCard({ song }: { song: Song }) {
           background: `linear-gradient(135deg, ${song.color}55, #09091a)`
         }}
       >
-        <div className="relative flex items-center gap-4 bg-[#09091a] rounded-2xl p-3 overflow-hidden">
+        <div className="relative flex items-center gap-4 overflow-hidden rounded-2xl bg-[#09091a] p-3">
 
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500"
+            className="absolute inset-0 opacity-0 blur-2xl transition-all duration-500 group-hover:opacity-100"
             style={{ background: song.color }}
           />
 
-          <div className="relative w-28 h-28 shrink-0">
+          <div className="relative h-28 w-28 shrink-0">
             <img
               src={song.image}
               alt={song.name}
-              className="w-full h-full object-cover rounded-xl"
+              className="h-full w-full rounded-xl object-cover"
             />
 
-            <span className="absolute bottom-1 right-1 text-[10px] px-2 py-[2px] rounded bg-black/70 text-white">
+            <span className="absolute right-1 bottom-1 rounded bg-black/70 px-2 py-[2px] text-[10px] text-white">
               {song.duration}
             </span>
           </div>
 
-          <div className="flex flex-col justify-center flex-1 min-w-0 z-10">
+          <div className="z-10 flex min-w-0 flex-1 flex-col justify-center">
 
-            <h3 className="text-base font-semibold text-[#e0ddff] truncate">
+            <h3 className="truncate text-base font-semibold text-[#e0ddff]">
               {song.name}
             </h3>
 
-            <p className="text-sm text-[#8888b0] truncate">
+            <p className="truncate text-sm text-[#8888b0]">
               {song.author}
             </p>
 
-            <div className="flex items-center justify-between mt-2">
+            <div className="mt-2 flex items-center justify-between">
               <span
-                className="text-xs px-2 py-1 rounded-full"
+                className="rounded-full px-2 py-1 text-xs"
                 style={{
                   background: `${song.color}33`,
                   color: song.color
@@ -53,9 +54,13 @@ function SongCard({ song }: { song: Song }) {
               </span>
 
               <button
-                className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm px-4 py-1 rounded-lg text-white"
+                className="rounded-lg px-4 py-1 text-sm text-white opacity-0 transition-all duration-300 group-hover:opacity-100"
                 style={{
                   background: song.color,
+                }}
+                onClick={async () => {
+                  audioPlayer.load(song.path);
+                  await audioPlayer.play()
                 }}
               >
                 ▶ Play

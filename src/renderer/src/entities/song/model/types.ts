@@ -5,7 +5,8 @@ export interface Song {
     image: string,
     duration: string,
     color: string,
-    genre: string
+    genre: string,
+    path: string,
 }
 
 export interface TemporalSong {

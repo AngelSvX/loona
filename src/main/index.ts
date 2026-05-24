@@ -1,9 +1,9 @@
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
-import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
-import path, { join } from 'path'
-import icon from '../../resources/icon.png?asset'
+import { app, BrowserWindow, dialog, ipcMain, net, protocol, shell } from 'electron'
 import fs from 'fs'
 import * as mm from 'music-metadata'
+import path, { join } from 'path'
+import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
   // Create the browser window.
@@ -16,7 +16,8 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      webSecurity: false
     }
   })
 
@@ -38,6 +39,19 @@ function createWindow(): void {
   }
 }
 
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: "loona",
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      stream: true,
+      corsEnabled: true,
+    },
+  },
+]);
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -54,6 +68,17 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+
+  protocol.handle("loona", async (request) => {
+
+    const songPath = decodeURIComponent(
+      request.url.replace("loona:///", "")
+    );
+
+    return net.fetch(
+      `file:///${songPath}`
+    );
+  });
 
   createWindow()
 
