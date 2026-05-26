@@ -4,7 +4,7 @@ class AudioPlayer {
     constructor() {
         this.audio = new Audio();
 
-        this.audio.volume = 0.01
+        this.audio.volume = 0.05
 
         this.audio.addEventListener(
             "error",

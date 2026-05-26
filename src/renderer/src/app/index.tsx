@@ -1,4 +1,5 @@
 import LibraryPage from "@renderer/pages/Library/ui/LibraryPage"
+import PlayerPage from "@renderer/pages/Player/ui/PlayerPage"
 import UploadPage from "@renderer/pages/Upload/ui/UploadPage"
 import WelcomePage from "@renderer/pages/Welcome/ui/WelcomePage"
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
@@ -26,9 +27,9 @@ function App() {
             element: <UploadPage/>
         },
         {
-            path: '/play/:id',
-            element: <div>Música actual</div>
-        }
+            path: '/play',
+            element: <PlayerPage/>
+        },
     ])
 
     return <RouterProvider router={router}/>

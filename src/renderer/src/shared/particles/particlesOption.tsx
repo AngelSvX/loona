@@ -23,7 +23,7 @@ export const particlesOptions: ISourceOptions = {
       enable: true,
       speed: 3,
     },
-    number: { value: 250, density: { enable: true } },
+    number: { value: 450, density: { enable: true } },
     opacity: {
       value: { min: 0.41, max: 1 },
       animation: { enable: true, speed: 0.6, sync: true },

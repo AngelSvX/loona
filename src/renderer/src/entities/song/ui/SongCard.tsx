@@ -1,12 +1,15 @@
-import { audioPlayer } from "@renderer/shared/services/audioPlayer"
-import { Song } from "../model/types"
+import { audioPlayer } from "@renderer/shared/services/audioPlayer";
+import { useNavigate } from "react-router";
+import { Song } from "../model/types";
 
 function SongCard({ song }: { song: Song }) {
 
-  console.log(song.path)
+  const navigate = useNavigate()
 
   return (
-    <div className="px-4 md:px-8 lg:px-16">
+    <div className="px-4 md:px-8 lg:px-16" onClick={() => {
+      navigate('/play')
+    }}>
       <div
         className="group relative w-full rounded-2xl p-px transition-all duration-300 hover:scale-[1.01]"
         style={{
